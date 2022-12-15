@@ -1,6 +1,5 @@
 package com.example.todoLogBack.exception;
 
-import ch.qos.logback.core.spi.ErrorCodes;
 
 public class EntityNotFoundException extends RuntimeException {
 
@@ -8,10 +7,6 @@ public class EntityNotFoundException extends RuntimeException {
 
     public EntityNotFoundException(String message) {
         super(message);
-    }
-
-    public EntityNotFoundException(String message, com.example.todoLogBack.exception.ErrorCodes cause) {
-        super();
     }
 
     public EntityNotFoundException(String message, Throwable cause, ErrorCodes errorCode) {
@@ -24,7 +19,7 @@ public class EntityNotFoundException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    /*public com.example.todoLogBack.exception.ErrorCodes getErrorCode() {
+    public com.example.todoLogBack.exception.ErrorCodes getErrorCode() {
         return errorCode;
-    }*/
+    }
 }

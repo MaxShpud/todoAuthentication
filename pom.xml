@@ -5,31 +5,25 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>todoLogBack</artifactId>
+    <groupId>com.bouali</groupId>
+    <artifactId>todo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>todoLogBack</name>
-    <description>to do list with users</description>
+    <name>todo</name>
+    <description>Udemy course - Todo list project</description>
+
     <properties>
-        <java.version>19</java.version>
+        <java.version>11</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -37,8 +31,8 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -46,22 +40,30 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--Swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.0</version>
+            <version>2.9.2</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.0</version>
+            <version>2.9.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
@@ -70,16 +72,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>com.github.kongchen</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>
                 <version>3.1.8</version>
@@ -88,13 +82,18 @@
                         <apiSource>
                             <springmvc>true</springmvc>
                             <locations>
-                                <location>com.example.todoLogBack.controllers</location>
+                                <location>com.bouali.todo.controllers</location>
                             </locations>
                             <basePath>http://localhost:8081</basePath>
                             <info>
                                 <title>Swagger Api Documentation for Todo application</title>
                                 <version>${project.version}</version>
                                 <description>Swagger Api documentation for Todo application</description>
+                                <contact>
+                                    <email>bouali.social@gmail.com</email>
+                                    <name>Ali Bouali</name>
+                                    <url>https://www.udemy.com/user/bouali-ali/</url>
+                                </contact>
                             </info>
                             <outputPath>${project.build.directory}</outputPath>
                             <outputFormats>json</outputFormats>
@@ -111,7 +110,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 
