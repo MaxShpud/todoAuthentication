@@ -6,13 +6,12 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.4.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-    <groupId>com.bouali</groupId>
-    <artifactId>todo</artifactId>
+    <groupId>com.example.todoLogBack</groupId>
+    <artifactId>todoLogBack</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>todo</name>
-    <description>Udemy course - Todo list project</description>
+    <name>todoLogBack</name>
 
     <properties>
         <java.version>11</java.version>
@@ -38,7 +37,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
@@ -82,7 +82,7 @@
                         <apiSource>
                             <springmvc>true</springmvc>
                             <locations>
-                                <location>com.bouali.todo.controllers</location>
+                                <location>com.todo.controllers</location>
                             </locations>
                             <basePath>http://localhost:8081</basePath>
                             <info>
