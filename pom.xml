@@ -15,6 +15,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <start-class>com.example.todoLogBack.TodoLogBackApplication</start-class>
     </properties>
 
     <dependencies>
@@ -37,7 +38,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -69,6 +70,7 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -89,11 +91,6 @@
                                 <title>Swagger Api Documentation for Todo application</title>
                                 <version>${project.version}</version>
                                 <description>Swagger Api documentation for Todo application</description>
-                                <contact>
-                                    <email>bouali.social@gmail.com</email>
-                                    <name>Ali Bouali</name>
-                                    <url>https://www.udemy.com/user/bouali-ali/</url>
-                                </contact>
                             </info>
                             <outputPath>${project.build.directory}</outputPath>
                             <outputFormats>json</outputFormats>
@@ -107,6 +104,21 @@
                         <phase>install</phase>
                         <goals>
                             <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.example.todoLogBack.TodoLogBackApplication</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
                         </goals>
                     </execution>
                 </executions>

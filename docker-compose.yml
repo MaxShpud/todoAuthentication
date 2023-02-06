@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mysqldbone:
+    image: mysql:8.0.31
+    container_name: "mysqldb_container"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=tododb
+      - MYSQL_ROOT_USER=root
+      - MYSQL_PASSWORD=
+    ports:
+      - 3307:3306
+  backendone:
+    build: ./
+    container_name: "backend_container"
+    ports:
+      - "8081:8081"
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldbone/tododb?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    depends_on:
+      - mysqldbone
